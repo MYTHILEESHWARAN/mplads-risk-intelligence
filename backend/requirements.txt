@@ -1,0 +1,63 @@
+# ============================================================
+# MPLADS Risk Intelligence — Backend Dependencies
+# Python 3.14 · Windows 64-bit
+#
+# Every package here has a prebuilt wheel for cp314-win_amd64.
+# Microsoft Visual C++ Build Tools are NOT required.
+#
+# LOCAL / DEMO MODE (default — SQLite, no PostgreSQL needed):
+#   pip install -r requirements.txt
+#
+# PRODUCTION MODE (PostgreSQL):
+#   pip install psycopg2-binary --only-binary=:all:
+#   Then set DATABASE_URL=postgresql://... in .env
+# ============================================================
+
+# ── Web framework ────────────────────────────────────────────
+# Pure-Python wheels — any Python version.
+fastapi==0.115.5
+uvicorn[standard]==0.34.0
+python-dotenv==1.0.1
+
+# ── Database ─────────────────────────────────────────────────
+# Pure-Python wheel — no compilation needed.
+sqlalchemy==2.0.40
+
+# PostgreSQL driver — commented out by default.
+# Only needed for production PostgreSQL; requires pg_config on host.
+# psycopg2-binary==2.9.9
+
+# ── Validation ───────────────────────────────────────────────
+# pydantic-core==2.50.0 ships a cp314-cp314-win_amd64 wheel.
+pydantic==2.14.0
+
+# ── ML / Data science ────────────────────────────────────────
+# All four have prebuilt cp314-win_amd64 or py3-none wheels.
+# (scikit-learn 1.9.x and xgboost 3.x both require numpy 2.x)
+
+# cp314-cp314-win_amd64 wheel — first numpy version with cp314 support
+numpy==2.3.5
+
+# cp314-cp314-win_amd64 wheel — first pandas version with cp314 support
+pandas==3.0.3
+
+# cp314-cp314-win_amd64 wheel (pulls in scipy which also has cp314 wheel)
+scikit-learn==1.9.1
+
+# py3-none-win_amd64 pure-Python wheel — works on any Python version
+xgboost==3.0.2
+
+# ── NLP — optional ───────────────────────────────────────────
+# Uncomment to enable Sentence Transformers semantic duplicate detection.
+# The app falls back to TF-IDF cosine similarity automatically if absent.
+# sentence-transformers==3.0.1
+
+# ── Explainability — optional ────────────────────────────────
+# Uncomment to enable SHAP feature importance explanations.
+# shap==0.46.0
+
+# ── Testing ──────────────────────────────────────────────────
+# pytest-asyncio 1.4.0 requires pytest>=8.4,<10 — compatible with 9.1.1
+pytest==9.1.1
+httpx==0.28.1
+pytest-asyncio==1.4.0

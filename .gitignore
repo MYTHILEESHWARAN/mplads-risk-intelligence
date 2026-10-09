@@ -1,0 +1,49 @@
+﻿# ── Python ───────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+venv/
+.venv/
+env/
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+htmlcov/
+.coverage
+
+# ── Database files ────────────────────────────────────────────
+*.db
+*.sqlite3
+mplads_demo.db
+test_mplads.db
+
+# ── Secrets — NEVER commit these ─────────────────────────────
+backend/.env
+mplads-frontend/.env
+
+# ── Node / Frontend ───────────────────────────────────────────
+node_modules/
+mplads-frontend/dist/
+mplads-frontend/.vite/
+mplads-frontend/.cache/
+
+# ── IDE ───────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# ── Temp / test artifacts ─────────────────────────────────────
+backend/_trace.py
+backend/_patch.py
+backend/smoke_test_output.txt
+
+# ── ML model artifacts (can be large) ────────────────────────
+*.pkl
+*.joblib
+*.model
+*.h5
